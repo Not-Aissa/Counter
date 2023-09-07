@@ -1,26 +1,67 @@
+import Counter from "./ts/helpers/classes/Counter";
+import CounterUI from "./ts/helpers/classes/CounterUI";
 import dom from "./ts/helpers/classes/Dom";
 import Button from "./ts/types/elements/Button";
-import Span from "./ts/types/elements/Span";
+import Input from "./ts/types/elements/Input";
 
-const counterButton = dom.select<Button>("#counter_btn");
-const counterElm = dom.select<Span>("#count");
+const countIncreaseBtn = dom.select<Button>("#increase_count_btn");
+const countDecreaseBtn = dom.select<Button>("#decrease_count_btn");
+const countResetBtn = dom.select<Button>("#reset_count_btn");
+const countFreezeBtn = dom.select<Button>("#freeze_count_btn");
+const countUnFreezeBtn = dom.select<Button>("#unfreeze_count_btn");
+const changeByInput = dom.select<Input>("#change_by_input");
 
-let count = 0;
+const counter = new Counter({ count: 0, changeBy: 1, isFreezing: false });
+
+const counterUI = new CounterUI({ counter });
+
+console.log(counter);
+
+console.log(counterUI);
 
 window.addEventListener("load", () => {
-  updateCount();
+  counterUI.updateCount();
+  counterUI.updateCountChangeBy();
+  counterUI.updateChangeByInput();
+  counterUI.checkFreezeState();
 });
 
-counterButton.addEventListener("click", increaseCount);
+countIncreaseBtn.addEventListener("click", () => {
+  counter.increase();
 
-function increaseCount(): number {
-  count += 1;
+  counterUI.updateCount();
+});
 
-  updateCount();
+countDecreaseBtn.addEventListener("click", () => {
+  counter.decrease();
 
-  return count;
-}
+  counterUI.updateCount();
+});
 
-function updateCount(): void {
-  counterElm.textContent = `${count}`;
-}
+countResetBtn.addEventListener("click", () => {
+  counter.reset();
+
+  counterUI.updateCount();
+
+  counterUI.updateCountChangeBy();
+
+  counterUI.updateChangeByInput();
+});
+
+countFreezeBtn.addEventListener("click", () => {
+  counter.freeze();
+
+  counterUI.checkFreezeState();
+});
+
+countUnFreezeBtn.addEventListener("click", () => {
+  counter.unfreeze();
+
+  counterUI.checkFreezeState();
+});
+
+changeByInput.addEventListener("input", (e: any) => {
+  counter.updateChangeBy(parseInt(e.target.value));
+
+  counterUI.updateCountChangeBy();
+});

@@ -3,31 +3,5 @@
 @media only screen and (max-width: $extra_small) {
   .container {
     width: $full;
-
-    header {
-      .vite-link,
-      .scss-link,
-      .typescript-link {
-        .vite,
-        .scss,
-        .typescript {
-          img {
-            width: 4rem;
-          }
-        }
-      }
-
-      .title-section {
-        .text {
-          font-size: 2rem;
-        }
-      }
-    }
-
-    footer {
-      .content {
-        font-size: small;
-      }
-    }
   }
 }

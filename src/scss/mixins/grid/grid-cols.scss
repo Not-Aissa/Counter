@@ -1,7 +1,4 @@
-@import "./grid.scss";
-
-@mixin grid-cols($cols, $items) {
-  @include grid;
+@mixin grid-cols($cols) {
+  display: grid;
   grid-template-columns: repeat($cols, minmax(0, 1fr));
-  justify-items: $items;
 }

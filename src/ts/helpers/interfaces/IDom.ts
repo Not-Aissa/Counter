@@ -1,4 +1,5 @@
-import { ClassListType, Selector } from "../types";
+import ClassListType from "../types/ClassListType";
+import Selector from "../types/Selector";
 
 interface IDom {
   select<E extends Element>(selector: Selector): E;

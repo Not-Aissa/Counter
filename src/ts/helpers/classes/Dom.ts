@@ -1,5 +1,6 @@
 import IDom from "../interfaces/IDom";
-import { ClassListType, Selector } from "../types";
+import ClassListType from "../types/ClassListType";
+import Selector from "../types/Selector";
 
 class Dom implements IDom {
   public select<E extends Element>(selector: Selector): E {

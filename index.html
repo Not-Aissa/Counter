@@ -5,49 +5,47 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/main.scss" />
-    <title>Vite + Scss + TypeScript</title>
+    <title>Counter app</title>
   </head>
   <body class="light">
     <main id="app" class="container">
-      <header>
-        <section class="logo-section">
-          <a class="vite-link" href="https://vitejs.dev/" target="_blank">
-            <div class="vite">
-              <img src="/vite.svg" alt="vite" />
-            </div>
-          </a>
+      <header class="counter-header">
+        <section class="counter-info-section">
+          <p class="info-text count">Count: <span id="count_elm"></span></p>
 
-          <a class="scss-link" href="https://sass-lang.com/" target="_blank">
-            <div class="scss">
-              <img src="/scss.svg" alt="scss" />
-            </div>
-          </a>
+          <p class="info-text change-by">
+            Change by: <span id="count_change_by_elm"></span>
+          </p>
 
-          <a
-            class="typescript-link"
-            href="https://www.typescriptlang.org/"
-            target="_blank"
-          >
-            <div class="typescript">
-              <img src="/typescript.svg" alt="typescript" />
-            </div>
-          </a>
+          <p class="info-text is-freezing">
+            Is freezing: <span id="is_freezing_elm"></span>
+          </p>
         </section>
 
-        <section class="title-section">
-          <p class="text">Vite + Scss + TypeScript</p>
+        <section class="actions-section">
+          <button id="increase_count_btn">Increase</button>
+
+          <button id="decrease_count_btn">Decrease</button>
+
+          <button id="reset_count_btn">Reset</button>
+
+          <button id="freeze_count_btn" class="freeze-count-btn">Freeze</button>
+
+          <button id="unfreeze_count_btn" class="unfreeze-count-btn hide">
+            UnFreeze
+          </button>
         </section>
 
-        <section class="counter-section">
-          <button id="counter_btn">Count is <span id="count"></span></button>
+        <section class="options-section">
+          <label for="change_by_input">Count change by</label>
+
+          <input
+            id="change_by_input"
+            type="number"
+            placeholder="Enter count change by"
+          />
         </section>
       </header>
-
-      <footer>
-        <p class="content">
-          Developed by <span class="developer">Aissa Bedr</span>
-        </p>
-      </footer>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>

@@ -1,0 +1,71 @@
+@import "../mixins/reset/reset-element.scss";
+@import "../mixins/flex/flex-col.scss";
+@import "../mixins/flex/flex-row.scss";
+@import "../mixins/grid/grid-cols.scss";
+@import "../variables/colors.scss";
+@import "../variables/borders.scss";
+
+.container .counter-header {
+  @include flex-col;
+  gap: 1rem;
+
+  .counter-info-section {
+    @include flex-row;
+    justify-content: space-between;
+
+    .info-text {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+
+  .actions-section {
+    @include grid-cols(4);
+    gap: 0.5rem;
+
+    button {
+      @include reset-element;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: $black_color;
+      color: $white_color;
+      padding: 0.3rem 0.7rem;
+      border-radius: $rounded;
+      cursor: pointer;
+      transition-duration: 0.25s;
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+
+    .freeze-count-btn,
+    .unfreeze-count-btn {
+      &.hide {
+        display: none;
+      }
+    }
+  }
+
+  .options-section {
+    @include flex-row;
+    align-items: center;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      width: 10%;
+    }
+
+    input {
+      @include reset-element;
+      padding: 0.3rem 0.7rem;
+      border-radius: $rounded;
+      background-color: $black_color;
+      color: $white_color;
+      width: 90%;
+    }
+  }
+}
